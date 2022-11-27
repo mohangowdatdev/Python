@@ -13,7 +13,7 @@ score = float(input("Enter Score: "))
 
 if score > 10.0:
     print("Out of Range!")
-    exit()
+    exit() 
 elif score < 0.0:
     print("Out of Range!")
     exit()
