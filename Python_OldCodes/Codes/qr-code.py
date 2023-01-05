@@ -1,22 +1,21 @@
 import qrcode
+import tkinter as tk
+from PIL import Image, ImageTk
 
-# Create qr code instance
-qr = qrcode.QRCode(
-    version=1,
-    error_correction=qrcode.constants.ERROR_CORRECT_L,
-    box_size=10,
-    border=4,
-)
 
-# The data that you want to store
-data = input("Enter Text : ")
+img = qrcode.make(input("Enter Text or URL : "))
+img.save("SCAN.png")
 
-# Add data
-qr.add_data(data)
-qr.make(fit=True)
+# Create the main window
+window = tk.Tk()
 
-# Create an image from the QR Code instance
-img = qr.make_image(fill_color="black", back_color="white")
+# Open the image file and convert it to a PhotoImage object
+image = Image.open("SCAN.png")
+photo = ImageTk.PhotoImage(image)
 
-# Save it somewhere, change the extension as needed:
-img.save("image.jpg")
+# Create a label and display the image
+label = tk.Label(image=photo)
+label.pack()
+
+# Run the Tkinter event loop
+window.mainloop()

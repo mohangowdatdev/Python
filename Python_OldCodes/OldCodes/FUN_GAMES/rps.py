@@ -11,7 +11,7 @@ def talk(audio):
     print(audio)
     for line in audio.splitlines():
         text_to_speech = gTTS(text = audio, lang='en-uk')
-        text_to_speech.save('audio.mp3')
+        text_to_speech.create('audio.mp3')
         mixer.init()
         mixer.music.load("audio.mp3")
         mixer.music.play()
@@ -23,7 +23,7 @@ def talk(audio):
 def speak(audio):
     for line in audio.splitlines():
         text_to_speech = gTTS(text = audio, lang='en-uk')
-        text_to_speech.save('audio.mp3')
+        text_to_speech.create('audio.mp3')
         mixer.init()
         mixer.music.load("audio.mp3")
         mixer.music.play()
